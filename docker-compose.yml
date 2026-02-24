@@ -9,7 +9,7 @@ services:
   watchtower:
     image: containrrr/watchtower
     environment:
-      -  WATCHTOWER_POLL_INTERVAL=60 
+      -  WATCHTOWER_POLL_INTERVAL=10 
       -  DOCKER_API_VERSION=1.52
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
