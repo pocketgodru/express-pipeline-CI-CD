@@ -5,14 +5,11 @@ services:
     ports:
       - "8080:8080"
     restart: always
-    # Метка для Watchtower (опционально, если не указано, он следит за всеми)
-    labels:
-      - "com.centurylinklabs.watchtower.enable=true"
 
   watchtower:
     image: containrrr/watchtower
-    container_name: watchtower
+    environment:
+      -  WATCHTOWER_POLL_INTERVAL=60 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30 --cleanup
-    restart: always
+    container_name: watchtower
